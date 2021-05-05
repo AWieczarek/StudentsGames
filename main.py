@@ -28,20 +28,22 @@ class Games():
     def make_index(self, path):
         dir = self.dir_list('')
         for x in dir:
-            if not self.if_exists(x):
-                f = open(classes_path+ '\\' + x + '\\'+ "index.htm", "a")
-                template = open('start_html.txt', 'r')
-                lines = template.readlines()
-                for y in lines:
-                    f.write(y+'\n')
-                template.close()
-                f.write(classes_path+ '\\' + x)
-                template = open('end_html.txt', 'r')
-                lines = template.readlines()
-                for y in lines:
-                    f.write(y+'\n')
-                template.close()
-                f.close()
+            f = open(classes_path + '\\' + x + '\\' + "index.htm", "w")
+            template = open('start_html.txt', 'r')
+            lines = template.readlines()
+            for y in lines:
+                f.write(y+'\n')
+            template.close()
+
+            for z in self.dir_list(x):
+                f.write(self.add_to_index(x, z))
+
+            template = open('end_html.txt', 'r')
+            lines = template.readlines()
+            for y in lines:
+                f.write(y+'\n')
+            template.close()
+            f.close()
 
     def add_to_readme(self):
         f = open('README.md', 'w')
@@ -51,6 +53,8 @@ class Games():
         for dir in dirs:
             f.write('- [' + dir + '](' + site_path + '/' + dir + '/index.htm)\n')
 
+    def add_to_index(self, dir, name):
+        return '- [' + name + '](' + site_path + '/' + dir + '/'+ name + ')\n'
 
     def if_exists(self, path):
         try:
@@ -63,5 +67,5 @@ class Games():
 
 if __name__ == "__main__":
     g = Games()
-    g.add_to_readme()
+    g.make_index('')
     g.git_push()

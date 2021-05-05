@@ -4,7 +4,7 @@ import os.path
 
 path = '.'
 commit = 'test'
-site_path = 'https://awieczarek.github.io/StudentsGames/'
+site_path = 'https://awieczarek.github.io/StudentsGames/Classes'
 classes_path = '.\\classes'
 title = '# StudentsGames'
 description = 'Games made by my students in Construct 3.'
@@ -49,7 +49,7 @@ class Games():
         f.write(title + '\n')
         f.write(description + '\n')
         for dir in dirs:
-            f.write('- ' + dir + '\n')
+            f.write('- [' + dir + '](' + site_path + '/' + dir + '/index.htm)\n')
 
 
     def if_exists(self, path):

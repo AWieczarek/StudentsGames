@@ -2815,7 +2815,6 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 		C3.Plugins.System.Acts.RestartLayout,
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.System.Acts.AddVar,
-		C3.Plugins.Sprite.Acts.SetVisible,
 		C3.Plugins.System.Cnds.Every,
 		C3.Plugins.Sprite.Cnds.OnCollision
 		];
@@ -2829,9 +2828,10 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 		{Tło: 0},
 		{Kaktus: 0},
 		{Keyboard: 0},
-		{Wynik: 0},
-		{HP1: 0},
-		{HP2: 0},
+		{Text: 0},
+		{Sprite: 0},
+		{Sprite2: 0},
+		{score: 0},
 		{HP: 0}
 	];
 }
@@ -2935,15 +2935,14 @@ wi.GetY()));wi.SetBboxChanged()}}GetPropertyValueByIndex(index){switch(index){ca
 
 	self.C3_ExpressionFuncs = [
 		() => 100,
-		() => -2,
+		() => -4,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => v0.GetValue();
 		},
 		() => 0,
-		() => 2,
-		() => 0.5,
 		() => 1,
+		() => 0.5,
 		() => -1
 	];
 }

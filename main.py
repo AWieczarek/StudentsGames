@@ -68,4 +68,5 @@ class Games():
 if __name__ == "__main__":
     g = Games()
     g.make_index('')
+    g.add_to_readme()
     g.git_push()

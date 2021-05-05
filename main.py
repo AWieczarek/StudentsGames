@@ -36,7 +36,7 @@ class Games():
             template.close()
 
             for z in self.dir_list(x):
-                f.write(self.add_to_index(x, z))
+                f.write(self.add_to_index(x, z) + '\n')
 
             template = open('end_html.txt', 'r')
             lines = template.readlines()
@@ -54,7 +54,7 @@ class Games():
             f.write('- [' + dir + '](' + site_path + '/' + dir + '/index.htm)\n')
 
     def add_to_index(self, dir, name):
-        return '- [' + name + '](' + site_path + '/' + dir + '/'+ name + ')\n'
+        return '- [' + name + '](' + site_path + '/' + dir + '/'+ name + ')'
 
     def if_exists(self, path):
         try:
